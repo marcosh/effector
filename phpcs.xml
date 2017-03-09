@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ruleset name="mvlabs-standards">
+    <description>Effector</description>
+    <rule ref="./vendor/mvlabs/coding-standard/MVLabs">
+        <exclude name="Squiz.Classes.ValidClassName"/>
+    </rule>
+</ruleset>
