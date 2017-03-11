@@ -4,61 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8ca5ab2e8572f855890fb2859daf04d4",
-    "content-hash": "c2313b930ab30800886b8db9a6b6e2a5",
+    "hash": "c636b5ec4bc739130b26bc997ea99cd9",
+    "content-hash": "33154f992186836a0ef9e1b6bcfe0c43",
     "packages": [
-        {
-            "name": "webmozart/assert",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
-                "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/2db61e59ff05fe5126d152bd0655c9ea113e550f",
-                "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.3.3 || ^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.6",
-                "sebastian/version": "^1.0.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Webmozart\\Assert\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bernhard Schussek",
-                    "email": "bschussek@gmail.com"
-                }
-            ],
-            "description": "Assertions to validate method input/output with nice error messages.",
-            "keywords": [
-                "assert",
-                "check",
-                "validate"
-            ],
-            "time": "2016-11-23 20:04:58"
-        }
-    ],
-    "packages-dev": [
         {
             "name": "doctrine/instantiator",
             "version": "1.0.5",
@@ -114,25 +62,64 @@
             "time": "2015-06-14 21:17:01"
         },
         {
-            "name": "mvlabs/coding-standard",
+            "name": "giorgiosironi/eris",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mvlabs/codingStandard.git",
-                "reference": "d6c90006671cc9fe0abd2bfad03455f9ac9bab2b"
+                "url": "https://github.com/marcosh/eris.git",
+                "reference": "6e553c3d87a3f9a7cb94bd1da613ca4dbb131c6c"
             },
             "require": {
-                "squizlabs/php_codesniffer": "^2.7"
+                "php": ">=5.5",
+                "phpunit/phpunit": "^6.0"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "^1.11.2",
+                "icomefromthenet/reverse-regex": "v0.0.6.3"
+            },
+            "suggest": {
+                "icomefromthenet/reverse-regex": "v0.0.6.3 for the regex() Generator"
             },
             "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Eris\\": "src/"
+                },
+                "files": [
+                    "src/Generator/functions.php"
+                ]
+            },
+            "scripts": {
+                "cs": [
+                    "composer validate --no-check-lock",
+                    "composer update",
+                    "vendor/bin/php-cs-fixer fix --config-file=.php_cs --verbose --diff"
+                ],
+                "test": [
+                    "composer validate --no-check-lock",
+                    "composer update",
+                    "vendor/bin/phpunit test"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
-                    "name": "Andrea Cadorin",
-                    "email": "a.cadorin@mvlabs.it"
+                    "name": "Giorgio Sironi",
+                    "email": "info@giorgiosironi.com"
+                },
+                {
+                    "name": "Mirko Bonadei",
+                    "email": "mirko.bonadei@gmail.com"
+                },
+                {
+                    "name": "Gabriele Lana",
+                    "email": "gabriele.lana@gmail.com"
                 }
             ],
-            "description": "MVLabs coding standard for php-cs",
-            "time": "2016-12-30 14:48:18"
+            "description": "PHP library for property-based testing. Integrates with PHPUnit.",
+            "time": "2017-03-11 18:27:13"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1289,6 +1276,79 @@
             "time": "2016-10-03 07:35:21"
         },
         {
+            "name": "webmozart/assert",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webmozart/assert.git",
+                "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/2db61e59ff05fe5126d152bd0655c9ea113e550f",
+                "reference": "2db61e59ff05fe5126d152bd0655c9ea113e550f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.6",
+                "sebastian/version": "^1.0.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webmozart\\Assert\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
+                }
+            ],
+            "description": "Assertions to validate method input/output with nice error messages.",
+            "keywords": [
+                "assert",
+                "check",
+                "validate"
+            ],
+            "time": "2016-11-23 20:04:58"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "mvlabs/coding-standard",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mvlabs/codingStandard.git",
+                "reference": "d6c90006671cc9fe0abd2bfad03455f9ac9bab2b"
+            },
+            "require": {
+                "squizlabs/php_codesniffer": "^2.7"
+            },
+            "type": "library",
+            "authors": [
+                {
+                    "name": "Andrea Cadorin",
+                    "email": "a.cadorin@mvlabs.it"
+                }
+            ],
+            "description": "MVLabs coding standard for php-cs",
+            "time": "2016-12-30 14:48:18"
+        },
+        {
             "name": "squizlabs/php_codesniffer",
             "version": "2.8.1",
             "source": {
@@ -1370,6 +1430,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "giorgiosironi/eris": 20,
         "mvlabs/coding-standard": 20
     },
     "prefer-stable": false,
