@@ -24,10 +24,6 @@
         {
             "url": "https://github.com/mvlabs/codingStandard.git",
             "type": "git"
-        },
-        {
-            "url": "https://github.com/marcosh/eris.git",
-            "type": "git"
         }
     ]
 }

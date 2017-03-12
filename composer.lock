@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c636b5ec4bc739130b26bc997ea99cd9",
-    "content-hash": "33154f992186836a0ef9e1b6bcfe0c43",
+    "hash": "0323ae0d8367f8ff0cc625ab86eeafea",
+    "content-hash": "8d6ee5b9c0be4c4ffef4e5f6e8b9bdcd",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -66,12 +66,18 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/marcosh/eris.git",
-                "reference": "6e553c3d87a3f9a7cb94bd1da613ca4dbb131c6c"
+                "url": "https://github.com/giorgiosironi/eris.git",
+                "reference": "538bbdaeb5679d094a33864fd54f85d6a4ffaa74"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/giorgiosironi/eris/zipball/538bbdaeb5679d094a33864fd54f85d6a4ffaa74",
+                "reference": "538bbdaeb5679d094a33864fd54f85d6a4ffaa74",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.5",
-                "phpunit/phpunit": "^6.0"
+                "phpunit/phpunit": ">4,<7"
             },
             "require-dev": {
                 "fabpot/php-cs-fixer": "^1.11.2",
@@ -89,22 +95,15 @@
                     "src/Generator/functions.php"
                 ]
             },
-            "scripts": {
-                "cs": [
-                    "composer validate --no-check-lock",
-                    "composer update",
-                    "vendor/bin/php-cs-fixer fix --config-file=.php_cs --verbose --diff"
-                ],
-                "test": [
-                    "composer validate --no-check-lock",
-                    "composer update",
-                    "vendor/bin/phpunit test"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
+                {
+                    "name": "Gabriele Lana",
+                    "email": "gabriele.lana@gmail.com"
+                },
                 {
                     "name": "Giorgio Sironi",
                     "email": "info@giorgiosironi.com"
@@ -112,14 +111,10 @@
                 {
                     "name": "Mirko Bonadei",
                     "email": "mirko.bonadei@gmail.com"
-                },
-                {
-                    "name": "Gabriele Lana",
-                    "email": "gabriele.lana@gmail.com"
                 }
             ],
             "description": "PHP library for property-based testing. Integrates with PHPUnit.",
-            "time": "2017-03-11 18:27:13"
+            "time": "2017-03-12 17:39:53"
         },
         {
             "name": "myclabs/deep-copy",
