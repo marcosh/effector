@@ -8,7 +8,6 @@
     ],
     "require": {
         "php": "^7.1",
-        "webmozart/assert": "^1.2",
         "giorgiosironi/eris": "^0.9"
     },
     "require-dev": {
