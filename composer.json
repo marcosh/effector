@@ -9,7 +9,7 @@
     "require": {
         "php": "^7.1",
         "webmozart/assert": "^1.2",
-        "giorgiosironi/eris": "dev-master"
+        "giorgiosironi/eris": "^0.9"
     },
     "require-dev": {
         "mvlabs/coding-standard": "dev-master",
