@@ -17,7 +17,7 @@ final class Compose
         $this->pieces = $pieces;
     }
 
-    public static function pieces(... $pieces)
+    public static function pieces(callable ... $pieces)
     {
         return new self($pieces);
     }

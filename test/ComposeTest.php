@@ -36,8 +36,8 @@ final class ComposeTest extends \PHPUnit\Framework\TestCase
 
     public function testComposeOfNotCallableThrowsInvalidArgumentException()
     {
-        self::expectException(\InvalidArgumentException::class);
-        self::expectExceptionMessage('Expected a callable. Got: integer');
+        self::expectException(\TypeError::class);
+        self::expectExceptionMessage('Argument 1 passed to Marcosh\Effector\Compose::pieces() must be callable, integer given');
 
         Compose::pieces(23);
     }
