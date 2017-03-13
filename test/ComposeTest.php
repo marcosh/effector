@@ -41,4 +41,17 @@ final class ComposeTest extends \PHPUnit\Framework\TestCase
 
         Compose::pieces(23);
     }
+
+    public function testComposeIterable()
+    {
+        $iterable = (function () {
+            yield function ($x) {return $x + 3;};
+            yield function ($x) {return $x * 2;};
+            yield function ($x) {return $x - 7;};
+        })();
+
+        $compose = Compose::iterable($iterable);
+
+        self::assertSame(37, $compose(19));
+    }
 }

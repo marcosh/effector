@@ -4,22 +4,23 @@ declare(strict_types = 1);
 
 namespace Marcosh\Effector;
 
-use Webmozart\Assert\Assert;
-
 final class Compose
 {
     private $pieces;
 
-    private function __construct(array $pieces)
+    private function __construct(iterable $pieces)
     {
-        Assert::allIsCallable($pieces);
-
         $this->pieces = $pieces;
     }
 
     public static function pieces(callable ... $pieces)
     {
         return new self($pieces);
+    }
+
+    public static function iterable(iterable $iterable)
+    {
+        return new self($iterable);
     }
 
     public function __invoke(... $args)
