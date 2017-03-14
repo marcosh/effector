@@ -6,7 +6,10 @@ namespace Marcosh\Effector\Effect\Quit;
 
 final class Exit_
 {
-    public function __invoke(string $status)
+    /**
+     * @param string|int $status
+     */
+    public function __invoke($status)
     {
         exit($status);
     }
