@@ -8,4 +8,12 @@ use PHPUnit\Framework\TestCase;
 
 final class EchoTest extends TestCase
 {
+    public function testEcho()
+    {
+        $command = 'php ' . __DIR__ . '/echo.php';
+
+        exec($command, $output);
+
+        self::assertSame(['message'], $output);
+    }
 }
