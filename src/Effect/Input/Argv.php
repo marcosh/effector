@@ -6,7 +6,7 @@ namespace Marcosh\Effector\Effect\Input;
 
 final class Argv
 {
-    public function __invoke()
+    public function __invoke(): array
     {
         return $_SERVER['argv'];
     }

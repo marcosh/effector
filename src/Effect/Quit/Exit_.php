@@ -9,7 +9,7 @@ final class Exit_
     /**
      * @param string|int $status
      */
-    public function __invoke($status)
+    public function __invoke($status): void
     {
         exit($status);
     }
