@@ -9,7 +9,8 @@
     "require": {
         "php": "^7.1",
         "giorgiosironi/eris": "^0.9",
-        "php-mock/php-mock-mockery": "^1.1"
+        "php-mock/php-mock-mockery": "^1.1",
+        "mockery/mockery": "^0.9.9"
     },
     "require-dev": {
         "mvlabs/coding-standard": "dev-master",
