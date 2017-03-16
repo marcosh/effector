@@ -4,34 +4,53 @@ declare(strict_types = 1);
 
 namespace Marcosh\EffectorTest;
 
+use Eris\Generator;
+use Eris\TestTrait;
 use Marcosh\Effector\Compose;
 
 final class ComposeTest extends \PHPUnit\Framework\TestCase
 {
+    use TestTrait;
+
     public function testComposeOfZeroPiecesIsTheIdentityFunction()
     {
-        $compose = Compose::pieces();
+        $this->forAll(
+            Generator\choose(0, 1000)
+        )->then(function ($number) {
+            $compose = Compose::pieces();
 
-        self::assertSame(23, $compose(23));
+            self::assertSame($number, $compose($number));
+        });
     }
 
     public function testComposeOFOnePieceIsTheIdentityFunctor()
     {
-        $callable = function ($x) {return $x + 3;};
+        $this->forAll(
+            Generator\choose(0, 1000),
+            Generator\choose(0, 1000)
+        )->then(function ($add, $number) {
+            $callable = function ($x) use ($add) {return $x + $add;};
 
-        $compose = Compose::pieces($callable);
+            $compose = Compose::pieces($callable);
 
-        self::assertSame($callable(23), $compose(23));
+            self::assertSame($callable($number), $compose($number));
+        });
     }
 
     public function testComposeOnMultiplePiecesIsComposition()
     {
-        $first = function ($x) {return $x + 3;};
-        $second = function ($y) {return $y * 2;};
+        $this->forAll(
+            Generator\choose(0, 1000),
+            Generator\choose(0, 1000),
+            Generator\choose(0, 1000)
+        )->then(function ($add, $mult, $number) {
+            $first = function ($x) use ($add) {return $x + $add;};
+            $second = function ($y) use ($mult) {return $y * $mult;};
 
-        $compose = Compose::pieces($first, $second);
+            $compose = Compose::pieces($first, $second);
 
-        self::assertSame(16, $compose(5));
+            self::assertSame(($number + $add) * $mult, $compose($number));
+        });
     }
 
     public function testComposeOfNotCallableThrowsInvalidArgumentException()
@@ -44,14 +63,21 @@ final class ComposeTest extends \PHPUnit\Framework\TestCase
 
     public function testComposeIterable()
     {
-        $iterable = (function () {
-            yield function ($x) {return $x + 3;};
-            yield function ($x) {return $x * 2;};
-            yield function ($x) {return $x - 7;};
-        })();
+        $this->forAll(
+            Generator\choose(0, 1000),
+            Generator\choose(0, 1000),
+            Generator\choose(0, 1000),
+            Generator\choose(0, 1000)
+        )->then(function ($add, $mult, $sub, $number) {
+            $iterable = (function () use ($add, $mult, $sub) {
+                yield function ($x) use ($add) {return $x + $add;};
+                yield function ($x) use ($mult) {return $x * $mult;};
+                yield function ($x) use ($sub) {return $x - $sub;};
+            })();
 
-        $compose = Compose::iterable($iterable);
+            $compose = Compose::iterable($iterable);
 
-        self::assertSame(37, $compose(19));
+            self::assertSame((($number + $add) * $mult) - $sub, $compose($number));
+        });
     }
 }
