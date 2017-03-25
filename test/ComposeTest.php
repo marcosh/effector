@@ -7,8 +7,9 @@ namespace Marcosh\EffectorTest;
 use Eris\Generator;
 use Eris\TestTrait;
 use Marcosh\Effector\Compose;
+use PHPUnit\Framework\TestCase;
 
-final class ComposeTest extends \PHPUnit\Framework\TestCase
+final class ComposeTest extends TestCase
 {
     use TestTrait;
 
