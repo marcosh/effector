@@ -45,7 +45,7 @@ final class FileGetContentsTest extends TestCase
     {
         $this->expectException(Warning::class);
         $this->expectExceptionMessage(
-            'file_get_contents(/app/test/Effect/File/not-existing-file.txt): ' .
+            'file_get_contents(' . __DIR__ . '/not-existing-file.txt): ' .
             'failed to open stream: No such file or directory'
         );
 
