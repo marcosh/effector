@@ -22,23 +22,23 @@ final class Combine
     private $then;
 
     private function __construct(
+        callable $then,
         callable $first,
-        callable $second,
-        callable $then
+        callable $second
     )
     {
+        $this->then = $then;
         $this->first = $first;
         $this->second = $second;
-        $this->then = $then;
     }
 
     public static function combine(
+        callable $then,
         callable $first,
-        callable $second,
-        callable $then
+        callable $second
     ): self
     {
-        return new self($first, $second, $then);
+        return new self($then, $first, $second);
     }
 
     public function __invoke(... $firstArgs)

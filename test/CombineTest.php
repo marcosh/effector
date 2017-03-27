@@ -31,7 +31,7 @@ final class CombineTest extends TestCase
                 return $a + $b;
             };
 
-            $combine = Combine::combine($first, $second, $sum);
+            $combine = Combine::combine($sum, $first, $second);
 
             self::assertSame(
                 $firstResult + $secondResult,
@@ -60,7 +60,7 @@ final class CombineTest extends TestCase
                 return $a + $b;
             };
 
-            $combine = Combine::combine($first, $second, $sum);
+            $combine = Combine::combine($sum, $first, $second);
 
             self::assertSame(
                 $firstInput + $firstAdd + $secondInput + $secondAdd,
