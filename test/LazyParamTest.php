@@ -31,7 +31,7 @@ final class LazyParamTest extends TestCase
                 return $a + $b;
             };
 
-            $combine = LazyParam::combine($sum, $first, $second);
+            $combine = LazyParam::lazyParameters($sum, $first, $second);
 
             self::assertSame(
                 $firstResult + $secondResult,
@@ -60,7 +60,7 @@ final class LazyParamTest extends TestCase
                 return $a + $b;
             };
 
-            $combine = LazyParam::combine($sum, $first, $second);
+            $combine = LazyParam::lazyParameters($sum, $first, $second);
 
             self::assertSame(
                 $firstInput + $firstAdd + $secondInput + $secondAdd,
@@ -81,7 +81,7 @@ final class LazyParamTest extends TestCase
                 return $a + $b;
             };
 
-            $combine = LazyParam::combine($sum, $sum, $sum);
+            $combine = LazyParam::lazyParameters($sum, $sum, $sum);
 
             self::assertSame(
                 $firstInputOne + $firstInputTwo + $secondInputOne + $secondInputTwo,

@@ -25,7 +25,7 @@ final class LazyParam
         $this->parameters = $parameters;
     }
 
-    public static function combine(
+    public static function lazyParameters(
         callable $function,
         callable ... $parameters
     ): self
@@ -43,7 +43,7 @@ final class LazyParam
 
         $otherParameters = array_slice($this->parameters, 1);
 
-        return self::combine(
+        return self::lazyParameters(
             function (... $parameters) use ($nextParameter, $parameterInput) {
                 return ($this->function)(
                     $nextParameter(... $parameterInput),
