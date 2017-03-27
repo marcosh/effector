@@ -13,7 +13,7 @@ final class LazyParamTest extends TestCase
 {
     use TestTrait;
 
-    public function testCombineFunctionsWithoutArgs()
+    public function testLazyParametersWithoutArgs()
     {
         $this->forAll(
             Generator\choose(0, 1000),
@@ -40,7 +40,7 @@ final class LazyParamTest extends TestCase
         });
     }
 
-    public function testCombineFunctionsWithSingleArg()
+    public function testLazyParametersWithSingleArg()
     {
         $this->forAll(
             Generator\choose(0, 1000),
@@ -69,7 +69,7 @@ final class LazyParamTest extends TestCase
         });
     }
 
-    public function testCombineFunctionsWithMultipleArgs()
+    public function testLazyParametersWithMultipleArgs()
     {
         $this->forAll(
             Generator\choose(0, 1000),
