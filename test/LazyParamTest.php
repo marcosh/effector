@@ -6,10 +6,10 @@ namespace Marcosh\EffectorTest;
 
 use Eris\Generator;
 use Eris\TestTrait;
-use Marcosh\Effector\Combine;
+use Marcosh\Effector\LazyParam;
 use PHPUnit\Framework\TestCase;
 
-final class CombineTest extends TestCase
+final class LazyParamTest extends TestCase
 {
     use TestTrait;
 
@@ -31,11 +31,11 @@ final class CombineTest extends TestCase
                 return $a + $b;
             };
 
-            $combine = Combine::combine($sum, $first, $second);
+            $combine = LazyParam::combine($sum, $first, $second);
 
             self::assertSame(
                 $firstResult + $secondResult,
-                $combine()()
+                $combine()()()
             );
         });
     }
@@ -60,11 +60,11 @@ final class CombineTest extends TestCase
                 return $a + $b;
             };
 
-            $combine = Combine::combine($sum, $first, $second);
+            $combine = LazyParam::combine($sum, $first, $second);
 
             self::assertSame(
                 $firstInput + $firstAdd + $secondInput + $secondAdd,
-                $combine($firstInput)($secondInput)
+                $combine($firstInput)($secondInput)()
             );
         });
     }
@@ -81,11 +81,11 @@ final class CombineTest extends TestCase
                 return $a + $b;
             };
 
-            $combine = Combine::combine($sum, $sum, $sum);
+            $combine = LazyParam::combine($sum, $sum, $sum);
 
             self::assertSame(
                 $firstInputOne + $firstInputTwo + $secondInputOne + $secondInputTwo,
-                $combine($firstInputOne, $firstInputTwo)($secondInputOne, $secondInputTwo)
+                $combine($firstInputOne, $firstInputTwo)($secondInputOne, $secondInputTwo)()
             );
         });
     }
