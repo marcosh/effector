@@ -13,6 +13,23 @@ final class LazyParamTest extends TestCase
 {
     use TestTrait;
 
+    public function testLazyParametersWithoutParametersIsIdentityFunctor()
+    {
+        $this->forAll(
+            Generator\choose(0, 1000),
+            Generator\choose(0, 1000)
+        )->then(function ($int, $add) {
+            $f = function ($x) use ($add) {
+                return $x + $add;
+            };
+
+            self::assertSame(
+                $f($int),
+                LazyParam::lazyParameters($f)($int)
+            );
+        });
+    }
+
     public function testLazyParametersWithoutArgs()
     {
         $this->forAll(
