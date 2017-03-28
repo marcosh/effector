@@ -30,6 +30,28 @@ final class LazyParamTest extends TestCase
         });
     }
 
+    public function testLazyParametersWithOneLazyParameter()
+    {
+        $this->forAll(
+            Generator\choose(0, 1000),
+            Generator\choose(0, 1000),
+            Generator\choose(0, 1000)
+        )->then(function ($add, $paramAdd, $int) {
+            $f = function ($x) use ($add) {
+                return $x + $add;
+            };
+
+            $param = function ($y) use ($paramAdd) {
+                return $y + $paramAdd;
+            };
+
+            self::assertSame(
+                $add + $paramAdd + $int,
+                LazyParam::lazyParameters($f, $param)($int)()
+            );
+        });
+    }
+
     public function testLazyParametersWithoutArgs()
     {
         $this->forAll(
