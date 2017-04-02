@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/marcosh/effector.svg?branch=master)](https://travis-ci.org/marcosh/effector)
 [![Code Climate](https://codeclimate.com/github/marcosh/effector/badges/gpa.svg)](https://codeclimate.com/github/marcosh/effector)
+[![Coverage Status](https://coveralls.io/repos/github/marcosh/effector/badge.svg?branch=master)](https://coveralls.io/github/marcosh/effector?branch=master)
 
 A Php library to write effect aware code.
 
