@@ -12,7 +12,7 @@ final class ExitTest extends TestCase
     {
         $command = 'php ' . __DIR__ . '/exit-string.php';
 
-        exec($command, $output, $return);
+        exec($command, $output);
 
         self::assertSame(['the end'], $output);
     }
