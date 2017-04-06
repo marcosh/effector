@@ -18,7 +18,7 @@ final class FilePutContentsTest extends TestCase
         $filePutContents = new FilePutContents();
 
         self::assertSame(6, $filePutContents($this->fileName, $text));
-        self::assertSame($text, file_get_contents($this->fileName));
+        self::assertStringEqualsFile($this->fileName, $text);
     }
 
     public function testFilePutArrayContents()
@@ -28,7 +28,7 @@ final class FilePutContentsTest extends TestCase
         $filePutContents = new FilePutContents();
 
         self::assertSame(11, $filePutContents($this->fileName, $text));
-        self::assertSame(implode($text), file_get_contents($this->fileName));
+        self::assertStringEqualsFile($this->fileName, implode($text));
     }
 
     public function testFilePutStreamContents()
@@ -46,7 +46,7 @@ final class FilePutContentsTest extends TestCase
         $filePutContents($this->fileName, $firstText);
 
         self::assertSame(6, $filePutContents($this->fileName, $secondText, FILE_APPEND));
-        self::assertSame($firstText . $secondText, file_get_contents($this->fileName));
+        self::assertStringEqualsFile($this->fileName, $firstText . $secondText);
     }
 
     public function tearDown()
