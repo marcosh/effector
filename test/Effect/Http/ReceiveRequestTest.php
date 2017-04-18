@@ -31,6 +31,5 @@ final class ReceiveRequestTest extends TestCase
         self::assertSame(['c'], $request->getParsedBody());
         self::assertSame(['d'], $request->getCookieParams());
         self::assertSame(['SCRIPT_NAME' => $uploadedFile], $request->getUploadedFiles());
-
     }
 }
