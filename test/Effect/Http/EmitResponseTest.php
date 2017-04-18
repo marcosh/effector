@@ -13,13 +13,26 @@ final class EmitResponseTest extends TestCase
 {
     public function testEmitsResponseCorrectly()
     {
-        $emitter = \Mockery::spy(EmitterInterface::class);
+        // we will be able to use spies with correct assertion count
+        // from the next mockery version
+        $emitter = \Mockery::mock(EmitterInterface::class);
 
         $emitResponse = new EmitResponse($emitter);
         $response = new Response();
 
-        $emitResponse($response);
+        $emitter->shouldReceive('emit')->with($response);
 
-        $emitter->shouldHaveReceived('emit')->with($response);
+        $emitResponse($response);
+    }
+
+    protected function assertPostConditions()
+    {
+        $container = \Mockery::getContainer();
+        if ($container != null) {
+            $count = $container->mockery_getExpectationCount();
+            $this->addToAssertionCount($count);
+        }
+
+        \Mockery::close();
     }
 }
