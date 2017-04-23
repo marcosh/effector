@@ -9,7 +9,7 @@ use Marcosh\Effector\Effect\Http\EmitResponse;
 use Marcosh\Effector\Effect\Http\ReceiveRequest;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Zend\Diactoros\Response;
+use Zend\Diactoros\Response\TextResponse;
 
 /**
  * You could use this as a web application.
@@ -27,7 +27,7 @@ use Zend\Diactoros\Response;
 require __DIR__ . '/../vendor/autoload.php';
 
 $websiteLogic = function (RequestInterface $request): ResponseInterface {
-    return new Response\TextResponse((string) $request->getUri());
+    return new TextResponse((string) $request->getUri());
 };
 
 $app = Compose::pieces(
