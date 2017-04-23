@@ -6,6 +6,9 @@ namespace Marcosh\Effector;
 
 final class Compose
 {
+    /**
+     * @var iterable
+     */
     private $pieces;
 
     private function __construct(iterable $pieces)
