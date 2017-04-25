@@ -9,6 +9,14 @@
 
 A Php library to write effect aware code.
 
+# Install
+
+Add this library to your dependencies using [Composer](https://getcomposer.org) with the command
+
+```bash
+composer require marcosh/effector
+```
+
 # Examples
 
 Run an example using
