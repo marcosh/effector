@@ -6,6 +6,7 @@
             "email": "m.perone@mvlabs.it"
         }
     ],
+    "license": "MIT",
     "require": {
         "php": "^7.1",
         "zendframework/zend-diactoros": "^1.3"
