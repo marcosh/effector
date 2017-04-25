@@ -34,6 +34,6 @@ $app = Compose::pieces(
 
 $serializedApp = serialize($app);
 
-$unserializedApp = unserialize($serializedApp, true);
+$unserializedApp = unserialize($serializedApp);
 
 $unserializedApp();
