@@ -17,7 +17,7 @@ final class ExecTest extends TestCase
         $connection = \Mockery::mock(\PDO::class);
         $connection->shouldReceive('exec')->with($argument)->andReturn($result);
 
-        (new Exec($connection))($argument);
+        self::assertSame($result, (new Exec($connection))($argument));
     }
 
     protected function assertPostConditions()
