@@ -24,6 +24,11 @@
             "Marcosh\\Effector\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Marcosh\\EffectorTest\\": "test/"
+        }
+    },
     "repositories": [
         {
             "url": "https://github.com/mvlabs/codingStandard.git",

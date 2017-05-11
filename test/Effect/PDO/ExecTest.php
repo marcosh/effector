@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace Marcosh\EffectorTest\Effect\PDO;
 
 use Marcosh\Effector\Effect\PDO\Exec;
+use Marcosh\EffectorTest\MockeryTrait;
 use PHPUnit\Framework\TestCase;
 
 final class ExecTest extends TestCase
 {
+    use MockeryTrait;
+
     public function testExec(): void
     {
         $argument = 'UPDATE something';
@@ -18,16 +21,5 @@ final class ExecTest extends TestCase
         $connection->shouldReceive('exec')->with($argument)->andReturn($result);
 
         self::assertSame($result, (new Exec($connection))($argument));
-    }
-
-    protected function assertPostConditions(): void
-    {
-        $container = \Mockery::getContainer();
-        if (null !== $container) {
-            $count = $container->mockery_getExpectationCount();
-            $this->addToAssertionCount($count);
-        }
-
-        \Mockery::close();
     }
 }
