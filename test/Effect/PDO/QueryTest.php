@@ -20,10 +20,10 @@ final class QueryTest extends TestCase
         self::assertSame($result, (new Query($connection))($argument));
     }
 
-    protected function assertPostConditions()
+    protected function assertPostConditions(): void
     {
         $container = \Mockery::getContainer();
-        if ($container != null) {
+        if (null !== $container) {
             $count = $container->mockery_getExpectationCount();
             $this->addToAssertionCount($count);
         }
